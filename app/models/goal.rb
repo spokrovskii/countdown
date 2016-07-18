@@ -1,2 +1,2 @@
-class Goal <ActiveRecord::Base
-end   
+class Goal < ActiveRecord::Base
+end
