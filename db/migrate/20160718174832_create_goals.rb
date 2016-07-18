@@ -5,7 +5,7 @@ class CreateGoals < ActiveRecord::Migration
       t.string :description, null: false
       t.timestamp :created_at
       t.timestamp :due_time
-      t.integer :unser_id, null: false
+      t.integer :user_id, null: false
     end
   end
 end

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160718174832) do
     t.string   "description", null: false
     t.datetime "created_at"
     t.datetime "due_time"
-    t.integer  "unser_id",    null: false
+    t.integer  "user_id",     null: false
   end
 
 end
