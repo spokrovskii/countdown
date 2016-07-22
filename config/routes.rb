@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  resources :goals, only: [:index, :show]
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
 
+<<<<<<< HEAD
   resources :goals, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,6 +18,17 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
 
+=======
+  # You can have the root of your site routed with "root"
+  # root 'welcome#index'
+
+  # Example of regular route:
+  #   get 'products/:id' => 'catalog#view'
+
+  # Example of named route that can be invoked with purchase_url(id: product.id)
+  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+
+>>>>>>> parent of 52ad526... added devise and user_first_name, user_last_name columns to the table
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
