@@ -11,12 +11,12 @@ feature 'User create an account', %{
   end
 
   scenario 'creates an account' do
-    visit root_path
-
+    visit new_user_registration_path
+    save_and_open_page
     click_link 'Sign Up'
     fill_in 'Email', with: 'countdown@mailinator.com'
-    fill_in 'first_name', with: 'Alex'
-    fill_in 'first_name', with: 'Jarvis'
+    fill_in 'First name', with: 'Alex'
+    fill_in 'Last name', with: 'Jarvis'
     fill_in 'Password', with: 'abc12345'
     fill_in 'Password confirmation', with: 'abc12345'
     click_button 'Sign up'
