@@ -1,5 +1,6 @@
 /db/schema.rb
 /config/initializers/devise.rb
+/db/migrate/20160722145807_devise_create_users.rb
 /db/migrate/*.rb
 db/migrate/*.rb
 /db/seeds.rb
