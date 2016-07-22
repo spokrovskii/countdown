@@ -12,7 +12,7 @@ feature 'User create an account', %{
 
   scenario 'creates an account' do
     visit new_user_registration_path
-    save_and_open_page
+
     click_link 'Sign Up'
     fill_in 'Email', with: 'countdown@mailinator.com'
     fill_in 'First name', with: 'Alex'
