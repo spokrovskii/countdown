@@ -10,11 +10,10 @@ feature 'User deletes account', %{
   scenario 'User deletes their account' do
     login_user(user)
     visit edit_user_registration_path(user.id)
-    save_and_open_page
+
     click_button('Cancel my account')
 
     expect(page).not_to have_content(user.first_name)
-    save_and_open_page
     expect(page).to have_content('Your account has been successfully
                                  cancelled.')
   end
