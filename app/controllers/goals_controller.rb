@@ -25,6 +25,7 @@ class GoalsController < ApplicationController
       render 'goals/new'
     end
   end
+
   def edit
     @goal = Goal.find(params[:id])
   end
@@ -40,6 +41,7 @@ class GoalsController < ApplicationController
       render 'goals/edit'
     end
   end
+
   def destroy
     @goal = Goal.find(params[:id])
     if @goal.destroy
