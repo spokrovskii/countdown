@@ -8,8 +8,7 @@ feature 'User can sign in with existing account', %{
   let(:user) { FactoryGirl.create(:user) }
 
   scenario 'signs in with an account' do
-
-    visit new_user_session_path
+  visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
