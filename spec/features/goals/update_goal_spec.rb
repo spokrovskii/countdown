@@ -17,7 +17,6 @@ feature 'Edit a goal', %{
     fill_in('Name', with: 'Updated Name!')
     fill_in('Description', with: 'New description')
 
-
     click_button('Save Goal')
 
     expect(page).to have_content('Updated Name!')
