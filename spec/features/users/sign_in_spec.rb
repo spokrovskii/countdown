@@ -1,26 +1,19 @@
 require 'rails_helper'
 
-feature 'User create an account', %{
+feature 'User can sign in with existing account', %{
   As a user
-  I want to create an account
-  So that I can create goal and plan subgoals
+  I want to sign in using my exisiting credentials
+  So that I can be authenticated and use more features of the site
 } do
-  scenario 'visits sign up page' do
-    visit root_path
-    expect(page).to have_content 'Sign Up'
-  end
+  let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'creates an account' do
-    visit new_user_registration_path
+  scenario 'signs in with an account' do
 
-    click_link 'Sign Up'
-    fill_in 'Email', with: 'countdown@mailinator.com'
-    fill_in 'First name', with: 'Alex'
-    fill_in 'Last name', with: 'Jarvis'
-    fill_in 'Password', with: 'abc12345'
-    fill_in 'Password confirmation', with: 'abc12345'
-    click_button 'Sign up'
-
-    expect(page).to have_content I18n.t 'devise.registrations.signed_up'
+    visit new_user_session_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+    expect(page).to have_content I18n.t 'devise.sessions.signed_in'
   end
 end
