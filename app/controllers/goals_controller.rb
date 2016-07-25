@@ -41,22 +41,22 @@ class GoalsController < ApplicationController
     end
   end
   def destroy
-      @goal = Goal.find(params[:id])
-      if @goal.destroy
-        flash[:success] = 'Goal deleted successfully'
-        redirect_to goals_path
-      else
-        flash[:alert] = 'Problems deleting goal'
-        redirect_to goal_path(@goal)
-      end
+    @goal = Goal.find(params[:id])
+    if @goal.destroy
+      flash[:success] = 'Goal deleted successfully'
+      redirect_to goals_path
+    else
+      flash[:alert] = 'Problems deleting goal'
+      redirect_to goal_path(@goal)
     end
+  end
 
     private
 
-    def goal_params
-      params.require(:goal).permit(:name,
-                                   :description,
-                                   :created_at,
-                                   :due_time)
-    end
+  def goal_params
+    params.require(:goal).permit(:name,
+                                 :description,
+                                 :created_at,
+                                 :due_time)
+  end
 end
