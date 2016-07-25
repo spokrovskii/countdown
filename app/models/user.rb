@@ -8,4 +8,4 @@ class User < ActiveRecord::Base
   has_many :goals, dependent: :destroy
 
   validates :email, presence: true
- end
+end
