@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Countdown</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= content_for?(:title) ? yield(:title) : "Countdown" %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -18,7 +20,16 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<%= yield %>
+<%= render "application/flash" %>
 
+  <div class="row">
+    <div class="columns content">
+      <%= yield %>
+    </div>
+  </div>
+
+  <% if Rails.env.test? %>
+    <%= hidden_field_tag :testing, true  %>
+  <% end %>
 </body>
 </html>
