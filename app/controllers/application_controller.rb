@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
                                                           :current_password,
                                                           :password,
                                                           :password_confirmation
-                                                        ]))
+                                                        ])
     end
   end
