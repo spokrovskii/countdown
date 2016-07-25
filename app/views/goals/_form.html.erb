@@ -1,0 +1,16 @@
+<%= render 'application/errors' %>
+<%= form_for @goal do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :due_time %>
+  <%= f.time_field :due_time %>
+
+  <%= f.label :created_at %>
+  <%= f.time_field :created_at %>
+
+  <%= f.submit 'Save Goal', class: 'button' %>
+<% end %>
