@@ -7,10 +7,7 @@
   <%= f.text_field :description %>
 
   <%= f.label :due_time %>
-  <%= f.time_field :due_time %>
-
-  <%= f.label :created_at %>
-  <%= f.time_field :created_at %>
+  <%= f.datetime_select :due_time %>
 
   <%= f.submit 'Save Goal', class: 'button' %>
 <% end %>
