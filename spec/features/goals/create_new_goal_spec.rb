@@ -16,16 +16,16 @@ feature 'Create a goal', %{
   scenario 'User fills out form correctly' do
     fill_in('Name', with: goal['name'])
     fill_in('Description', with: goal['description'])
-    fill_in('Created at', with: goal['created_at'])
-    fill_in('Due time', with: goal['due_time'])
+    select '2016', from: 'goal[due_time(1i)]'
+    select 'July', from: 'goal[due_time(2i)]'
+    select '29', from: 'goal[due_time(3i)]'
 
     click_button('Save Goal')
 
     expect(page).to have_content(goal['name'])
     expect(page).to have_content(goal['description'])
-    expect(page).to have_content(goal['created_at'])
-    expect(page).to have_content(goal['due_time'])
-
+    expect(page).to have_content(goal['due_time.to_s'])
+    expect(page).to have_content(goal['created_at.to_s'])
     expect(page).to have_content('Goal saved successfully')
   end
 

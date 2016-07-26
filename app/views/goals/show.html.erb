@@ -2,9 +2,7 @@
   <h2>Goals Details</h2>
   <h1><%= @goal.name %></h1>
   <h3>Goal description</h3>
-
-   <%= @goal.created_at %>
+   <%= @goal.created_at.localtime %>
    <%= @goal.description  %>
    <%= @goal.due_time %>
-
 </div>

@@ -3,6 +3,3 @@ class Goal < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
 end
-
-def time_duration
-end
