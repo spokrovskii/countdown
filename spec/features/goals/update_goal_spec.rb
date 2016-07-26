@@ -5,8 +5,8 @@ feature 'Edit a goal', %{
   I want to edit my own goal
   So that I can make updates if details about my goal change
 } do
-  let(:goal) { FactoryGirl.create(:goal, t_accessible: false) }
-  let(:admin) { FactoryGirl.create(:admin) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:goal) { FactoryGirl.create(:goal) }
 
   before do
     login_user(user)
@@ -33,7 +33,7 @@ feature 'Edit a goal', %{
 
     expect(page).to have_content('Problems updating goal')
     expect(page).to have_content("Name can't be blank")
-    expect(page).to have_content("Address can't be blank")
+    expect(page).to have_content("Description can't be blank")
   end
 
   scenario 'unauthenticated user cannot edit a goal' do
