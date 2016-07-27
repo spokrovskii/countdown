@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
 
   def admin?
-      role == 'admin'
+    role == 'admin'
   end
 
   def can_modify?(item)
