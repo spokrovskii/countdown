@@ -4,5 +4,6 @@
   <h3>Goal description</h3>
    <%= @goal.created_at.localtime.strftime('%a, %d %b %Y %H:%M:%S') %>
    <%= @goal.description  %>
-   <%= @goal.due_time.strftime('%a, %d %b %Y %H:%M:%S') %>
+   <%= @goal.due_time.strftime('%a, %d %b %Y %H:%M:%S') %></br>
+   <%= @goal.amount_of_time_left_to_finish_goal %>
 </div>
