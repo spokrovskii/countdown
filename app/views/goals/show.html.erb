@@ -1,3 +1,11 @@
+<% if current_user && current_user.can_modify?(@goal) %>
+      <ul class="button-group">
+        <li><%= link_to 'Edit', edit_goal_path(@goal), class: 'button tertiery' %></li>
+        <li><%= button_to 'Delete', goal_path(@goal), method: 'delete',
+                                                      class: 'button tertiery' %>
+        </li>
+      </ul>
+    <% end %>
 <div class="goals-details">
   <h2>Goals Details</h2>
   <h1><%= @goal.name %></h1>

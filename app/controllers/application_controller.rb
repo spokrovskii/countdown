@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [
+                                                          { roles: [] },
                                                           :first_name,
                                                           :last_name,
                                                           :email,
@@ -16,5 +17,19 @@ class ApplicationController < ActionController::Base
                                                           :password,
                                                           :password_confirmation
                                                         ])
+    end
+
+    def check_permissions
+      item = model.find(params[:id])
+
+      if !current_user || !current_user.can_modify?(item)
+        flash[:alert] = 'You do not have permission to complete that action.'
+        redirect_to root_path
+      end
+    end
+    private
+
+    def model
+      self.class.name.sub("Controller", "").singularize.constantize
     end
   end
