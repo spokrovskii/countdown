@@ -16,6 +16,9 @@ feature 'Edit a goal', %{
   scenario 'User edits form correctly' do
     fill_in('Name', with: 'Updated Name!')
     fill_in('Description', with: 'New description')
+    select '2017', from: 'goal[due_time(1i)]'
+    select 'June', from: 'goal[due_time(2i)]'
+    select '20', from: 'goal[due_time(3i)]'
 
     click_button('Save Goal')
 
