@@ -5,11 +5,11 @@ feature 'Edit a goal', %{
   I want to edit my own goal
   So that I can make updates if details about my goal change
 } do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:goal) { FactoryGirl.create(:goal) }
+  let(:current_user) { FactoryGirl.create(:user) }
+  let(:goal) { FactoryGirl.create(:goal, user: current_user) }
 
   before do
-    login_user(user)
+    login_user(current_user)
     visit edit_goal_path(goal)
   end
 

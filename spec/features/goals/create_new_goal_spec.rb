@@ -5,13 +5,13 @@ feature 'Create a goal', %{
   I want to create a goal
   So that I can add my goal on a page
 } do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:goal) { FactoryGirl.build(:goal) }
+  let(:current_user) { FactoryGirl.create(:user) }
+  let(:goal) { FactoryGirl.create(:goal, user: current_user) }
 
   before do
-    login_user(user)
-    visit new_goal_path
-  end
+    login_user(current_user)
+    visit new_goal_path(goal)
+    end
 
   scenario 'User fills out form correctly' do
     fill_in('Name', with: goal['name'])

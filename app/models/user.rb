@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :goals, dependent: :destroy
 
   validates :email, presence: true
+
+  def can_modify?(item)
+    id == item.user_id
+  end
 end
