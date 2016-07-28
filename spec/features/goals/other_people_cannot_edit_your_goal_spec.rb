@@ -29,12 +29,10 @@ feature 'users cannot edit goals they did not create', %{
     expect(current_path).to eq(root_path)
     within('.content') do
       expect(page).not_to have_css('form')
-
     end
   end
 
   scenario 'user tries to delete goal of another user' do
-
     expect(page).not_to have_button('Delete')
   end
 end

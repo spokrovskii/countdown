@@ -11,7 +11,7 @@ feature 'Create a goal', %{
   before do
     login_user(current_user)
     visit new_goal_path(goal)
-    end
+  end
 
   scenario 'User fills out form correctly' do
     fill_in('Name', with: goal['name'])
