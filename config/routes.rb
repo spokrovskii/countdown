@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'goals#index'
+  root 'homepage#index'
+
+  resources :homepage, only: [:index]
 
   resources :goals, only: [:index,
                            :show,

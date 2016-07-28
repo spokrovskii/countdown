@@ -1,8 +1,8 @@
 class GoalsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
-    @goals = Goal.all
+    @goals = current_user.goals
   end
 
   def show
