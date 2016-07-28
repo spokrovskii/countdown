@@ -4,11 +4,11 @@ feature 'View details of the goal for the current user' do
   let(:current_user) { FactoryGirl.create(:user) }
 
   before do
-     login_user(current_user)
-   end
+    login_user(current_user)
+  end
 
   scenario 'When a user clicks on the goals name se goal details.' do
-    goal =  FactoryGirl.create(:goal, user: current_user)
+    goal = FactoryGirl.create(:goal, user: current_user)
     visit goals_path
 
     click_link(goal.name)

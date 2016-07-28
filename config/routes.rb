@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'homepage#index'
 
-resources :homepage, only: [:index]
+  resources :homepage, only: [:index]
 
   resources :goals, only: [:index,
                            :show,
