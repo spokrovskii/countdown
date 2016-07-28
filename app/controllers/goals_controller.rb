@@ -1,6 +1,8 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
+  before_action :check_permissions, only: [:edit, :update, :destroy]
+
   def index
     @goals = current_user.goals
   end
