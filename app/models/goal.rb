@@ -2,6 +2,7 @@ class Goal < ActiveRecord::Base
   belongs_to :user
   validates :name, presence: true
   validates :description, presence: true
+  
 
   def amount_of_time_left_to_finish_goal
     time_finished = due_time

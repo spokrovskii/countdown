@@ -6,7 +6,7 @@ class CreateGoals < ActiveRecord::Migration
       t.timestamp :created_at
       t.timestamp :created_at
       t.timestamp :updated_at
-      t.timestamp :due_time
+      t.timestamp :due_time, null: false
       t.integer :user_id
     end
   end
