@@ -1,45 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= content_for?(:title) ? yield(:title) : "Countdown" %></title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class="top-bar">
-    <div class="top-bar-right">
-      <ul class="menu">
-      <% if user_signed_in? %>
-      <li>
-        Currently signed in as: <%= link_to "#{current_user.email}", edit_user_registration_path(@user) %>
-      </li>
-      <li>
-        <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to 'Sign Up', new_user_registration_path %> <%= link_to 'Sign In', new_user_session_path %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= render "application/flash" %>
+    <title><%= content_for?(:title) ? yield(:title) : "Count-Down" %></title>
 
-  <div class="row">
-    <div class="columns content">
-      <%= yield %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menu</div>
     </div>
-  </div>
 
-  <% if Rails.env.test? %>
-    <%= hidden_field_tag :testing, true  %>
+      <div class="top-bar" id="main-menu">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text"><%= link_to 'Home', root_path, method: 'get' %></li>
+          </ul>
+         </div>
+        <div class="top-bar-right">
+          <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to "#{current_user.email}", edit_user_registration_path(@user)%>
+            </li>
+
+              <li><%= link_to 'Sign Out', destroy_user_session_path, class: 'small-button', method: 'delete' %></li>
+            <% else %>
+              <li><%= link_to 'Sign Up', new_user_registration_path, class: 'small-button', method: 'get' %></li>
+              <li><%= link_to 'Sign In', new_user_session_path, class: 'small-button', method: 'get' %></li>
+            <% end %>
+           </ul>
+         </div>
+       </div>
+       <% flash.each do |type, message| %>
+    <% type = 'success' if type == 'notice' %>
+    <div class="callout <%= type %>" data-closable>
+      <%= message %>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   <% end %>
-</body>
+  <% if @errors  %>
+    <div class="errors">
+    <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+     <% end %>
+     </ul>
+    </div>
+  <% end %>
+    <%= yield %>
+
+  </body>
 </html>

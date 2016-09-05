@@ -15,5 +15,6 @@
    <%= @goal.created_at.localtime.strftime('%a, %d %b %Y %H:%M:%S') %>
    <%= @goal.description  %>
    <%= @goal.due_time.strftime('%a, %d %b %Y %H:%M:%S') %></br>
-   <%= @goal.amount_of_time_left_to_finish_goal %>
+   <div class='dynamic'>
+   <%= render :partial => 'goals/count_down_portion' %>
 </div>

@@ -18,7 +18,7 @@ class Goal < ActiveRecord::Base
     seconds_fraction = (minutes - minutes_number)
     seconds = seconds_fraction * 60
     seconds_number = seconds.floor
-      days_number.to_s + ' day(s) ' +
+    @time_left = days_number.to_s + ' day(s) ' +
       hours_number.to_s + ' hour(s) ' +
       minutes_number.to_s + ' minute(s) ' +
       seconds_number.to_s + ' seconds'
