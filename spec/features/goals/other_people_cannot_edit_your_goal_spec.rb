@@ -17,7 +17,6 @@ feature 'users cannot edit goals they did not create', %{
     login_user(current_user)
     visit goal_path(goal)
   end
-
   scenario 'user tries to edit a goal of another user' do
     expect(page).not_to have_button('Edit')
   end
@@ -27,9 +26,6 @@ feature 'users cannot edit goals they did not create', %{
     expect(page).to have_content('You do not have permission to complete '\
                                  'that action.')
     expect(current_path).to eq(root_path)
-    within('.content') do
-      expect(page).not_to have_css('form')
-    end
   end
 
   scenario 'user tries to delete goal of another user' do
