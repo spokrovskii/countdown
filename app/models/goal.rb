@@ -22,6 +22,5 @@ class Goal < ActiveRecord::Base
       hours_number.to_s + ' hour(s) ' +
       minutes_number.to_s + ' minute(s) ' +
       seconds_number.to_s + ' seconds'
-
   end
 end
