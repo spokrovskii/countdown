@@ -4,7 +4,7 @@
 
 .top-bar {
   background: $black;
-  padding: 0;
+  padding: 10 px;
 }
 
 .menu-text {
@@ -13,4 +13,33 @@
 
 .menu.dropdown {
   background: $black;
+}
+
+.menu > li > a {
+color: $white;
+
+
+  ul {
+    background: $white;
+
+    li {
+      background: $white;
+
+      a {
+        color: $white;
+        font-weight: lighter;
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+label {
+  color: $white;
+  font-size: 15px;
+  text-align: left;
+  margin: 0;
 }

@@ -2,4 +2,46 @@ body {
   background: image-url('background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 0.8;
+
+  @media only screen and (max-width: 400px) {
+    background-image: image-url('background_mobile.png');
+  }
+
+  @media only screen and (max-height: 1200px) {
+    background-size: auto;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li a {
+      color: $white;
+      font-weight: bold;
+    }
+  }
+
+  a:link {
+    color: $white;
+  }
+
+  a:visited {
+    color: $white;
+  }
+
+  a:hover {
+    color: $blue;
+  }
+
+  a:active {
+    color: $white;
+  }
+}
+
+
+h3 {
+  text-align: center;
+  color: $white;
 }

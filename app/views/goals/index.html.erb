@@ -1,6 +1,13 @@
+<div class="row">
+ <div class="medium-8 medium-centered columns"></div>
 <h1>Goals</h1>
 <ul>
    <% @goals.each do |goal| %>
      <li><%= link_to goal.name, goal_path(goal) %></li>
+     <%= goal.description  %>
+     <%= goal.due_time.strftime('%a, %d %b %Y %H:%M:%S')%>
    <% end %>
+
 </ul>
+</div>
+</div>
