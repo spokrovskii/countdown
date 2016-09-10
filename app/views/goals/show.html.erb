@@ -12,9 +12,16 @@
   <h2>Goals Details</h2>
   <h1><%= @goal.name %></h1>
   <h3>Goal description</h3>
-   <%= @goal.created_at.localtime.strftime('%a, %d %b %Y %H:%M:%S') %>
-   <%= @goal.description  %>
+   <%= @goal.created_at.localtime.strftime('%a, %d %b %Y %H:%M:%S') %></br>
+   <%= @goal.description  %></br>
+   <%= @goal.subtask %></br>
    <%= @goal.due_time.strftime('%a, %d %b %Y %H:%M:%S') %></br>
    <div class='dynamic'>
-   <%= render :partial => 'goals/count_down_portion' %>
+     <%= render :partial => 'goals/count_down_portion' %>
+     <%= form_for @goal, html: {id: "subtask-entry"} do |f| %>
+     <%= f.label :subtask %>
+     <%= f.text_field :subtask %>
+     <%= f.submit ("Add a subtask"), id: 'submit', class: 'button' %>
+     <% end %>
+   </div>
 </div>

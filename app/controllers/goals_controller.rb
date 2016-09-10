@@ -61,6 +61,7 @@ class GoalsController < ApplicationController
     params.require(:goal).permit(:name,
                                  :description,
                                  :created_at,
-                                 :due_time)
+                                 :due_time,
+                                 :subtask)
   end
 end

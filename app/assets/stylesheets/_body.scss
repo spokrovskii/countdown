@@ -8,8 +8,14 @@ body {
     background-image: image-url('background_mobile.png');
   }
 
-  @media only screen and (max-height: 1200px) {
+  @media only screen and (max-height: 1600px) {
     background-size: auto;
+
+    @media only screen {
+/* Resize to best fit and retain aspect ratio.
+   Will cause gap if aspect ratio of box is different from image. */
+  background-size: cover;
+}
   }
 
   ul {
@@ -42,6 +48,17 @@ body {
 
 
 h3 {
+  color: $white;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.title {
+  background: rgba($black, 0.7);
+  padding: 6px;
   color: $white;
   text-align: center;
 }

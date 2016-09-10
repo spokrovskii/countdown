@@ -10,8 +10,7 @@ feature 'View all goals' do
   scenario 'When user sing ins see all goals that belongs to that user.' do
     goals = FactoryGirl.create_list(:goal, 3, user: current_user)
     visit goals_path
-
-    expect(page).to have_content('Goals')
+    expect(page).to have_content('GOALS')
     goals.each do |goal|
       expect(page).to have_content(goal.name)
     end
