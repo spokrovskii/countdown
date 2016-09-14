@@ -9,6 +9,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    @subtasks = @goal.subtasks
   end
 
   def new
