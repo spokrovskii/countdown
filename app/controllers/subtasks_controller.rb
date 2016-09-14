@@ -26,7 +26,7 @@ class SubtasksController < ApplicationController
   end
 
     def show
-        @goal = Goal.find(params[:goal_id])
+      @goal = Goal.find(params[:goal_id])
       @subtasks = @goal.subtasks.find(params[:id])
     end
 
