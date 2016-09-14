@@ -1,0 +1,20 @@
+$(function() {
+  $("#subtask-entry").submit(function(event) {
+    event.preventDefault();
+
+    var name = $('#subtask').val();
+
+    if(name) {
+
+    } else {
+
+    }
+  });
+});
+
+
+<%= @subtasks.each do |subtask| %>
+<%= f.label :subtask %>
+<%= f.text_field :subtask %>
+<%= f.submit ("Add a subtask"), id: 'submit', class: 'button' %>
+<% end %>

@@ -10,9 +10,13 @@
          <%= goal.description  %>
          <%= goal.due_time.strftime('%a, %d %b %Y %H:%M:%S')%></br>
          <ul class="button-group">
-           <li><%= link_to 'Edit', edit_goal_path(goal), class: 'button tertiery' %></li>
-           <li><%= button_to 'Delete', goal_path(goal), method: 'delete',
-                                                         class: 'button tertiery' %>
+           <li>
+             <%= link_to 'Edit', edit_goal_path(goal),
+                  class: 'button tertiery' %>
+           </li>
+           <li><%= button_to 'Delete', goal_path(goal),
+                   method: 'delete',
+                   class: 'button tertiery' %>
            </li>
          </ul>
        <% end %>

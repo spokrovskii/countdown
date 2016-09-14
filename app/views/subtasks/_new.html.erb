@@ -1,0 +1,6 @@
+
+<%= form_for [@goal, subtask] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit ("Add a subtask"), id: 'submit', class: 'button' %>
+<% end %>

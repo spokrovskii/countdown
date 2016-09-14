@@ -21,7 +21,9 @@ Rails.application.routes.draw do
                            :edit,
                            :create,
                            :update,
-                           :destroy]
+                           :destroy] do
+    resources :subtasks, only: [:index, :new, :create, :show]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
