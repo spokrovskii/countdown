@@ -1,5 +1,5 @@
-<%= form_for [@goal, @subtask] do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.submit ("Add a subtask"), id: 'submit', class: 'button' %>
+<%= form_for [@goal, subtask] do |f| %>
+  <%= f.label :'Add a subtask' %>
+  <%= f.text_field :name %>
+  <%= f.submit ("Add a subtask"), id: 'submit-subtask', class: 'button' %>
 <% end %>

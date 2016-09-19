@@ -4,7 +4,13 @@ class SubtasksController < ApplicationController
   before_action :check_permissions, only: [:edit, :update, :destroy]
 
   def index
+    @goal = Goal.find(params[:goal_id])
     @subtasks = @goal.subtasks.all
+  end
+
+  def show
+    @goal = Goal.find(params[:goal_id])
+    @subtasks = @goal.subtasks.find(params[:id])
   end
 
   def new
@@ -25,11 +31,19 @@ class SubtasksController < ApplicationController
     end
   end
 
-    def show
-      @goal = Goal.find(params[:goal_id])
-      @subtasks = @goal.subtasks.find(params[:id])
+  def destroy
+    binding.pry
+    @goal = Goal.find(params[:goal_id])
+    @subtask = @goal.subtask.destroy(subtask_params)
+    if @subtask.destroy
+      flash[:success] = 'Subtask deleted successfully'
+      redirect_to goal_path(@goal)
+    else
+      flash[:alert] = 'Problems deleting subtask'
+      @errors = @subtask.errors.full_messages
+      redirect_to goal_path(@goal)
     end
-
+  end
 
   private
 

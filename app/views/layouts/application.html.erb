@@ -37,7 +37,7 @@
             </li>
 
               <li><%= link_to 'Sign Out', destroy_user_session_path, class: 'small-button', method: 'delete' %></li>
-            <% else %>
+              <% else %>
               <li><%= link_to 'Sign Up', new_user_registration_path, class: 'small-button', method: 'get' %></li>
               <li><%= link_to 'Sign In', new_user_session_path, class: 'small-button', method: 'get' %></li>
             <% end %>

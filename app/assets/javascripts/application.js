@@ -18,5 +18,4 @@
 //= require what-input.js
 //= require_tree .
 
-
 $(function(){ $(document).foundation(); });
