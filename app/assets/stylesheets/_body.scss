@@ -1,8 +1,9 @@
 body {
+  height:100%;
   background: image-url('background.jpg');
+  background-color: $black;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.8;
 
   @media only screen and (max-width: 400px) {
     background-image: image-url('background_mobile.png');
@@ -25,13 +26,13 @@ body {
 
     li a {
       color: $white;
-      font-weight: bold;
-    }
+      }
   }
 
   a:link {
     color: $white;
-  }
+
+      }
 
   a:visited {
     color: $white;
@@ -39,6 +40,7 @@ body {
 
   a:hover {
     color: $blue;
+
   }
 
   a:active {
@@ -46,10 +48,17 @@ body {
   }
 }
 
+h1 {
+  color: $white;
+}
 
 h3 {
   color: $white;
   text-align: center;
+}
+
+h5 {
+  color: $white;
 }
 
 h2 {
@@ -61,4 +70,8 @@ h2 {
   padding: 6px;
   color: $white;
   text-align: center;
+}
+
+.background {
+  background: rgba($black, 0.7);
 }

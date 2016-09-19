@@ -15,7 +15,7 @@ feature 'View details of the goal for the current user' do
 
     expect(page).to have_content(goal.name)
     expect(page).to have_content(goal.description)
-    expect(page).to have_content(goal.due_time.strftime('%a, %d %b %Y %H:%M:%S'))
+    expect(page).to have_content(goal.due_time.strftime('%a, %d %b %Y'))
     expect(page).to have_content(goal.amount_of_time_left_to_finish_goal)
   end
 end

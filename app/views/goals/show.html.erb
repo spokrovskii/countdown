@@ -1,25 +1,55 @@
-<div>
-  <% if current_user && current_user.can_modify?(@goal) %>
-      <ul class="button-group">
-        <li><%= link_to 'Edit', edit_goal_path(@goal), class: 'button tertiery' %></li>
-        <li><%= button_to 'Delete', goal_path(@goal), method: 'delete',
-                                                      class: 'button tertiery' %>
-        </li>
-      </ul>
-  <% end  %>
-</div>
-<div class="goals-details">
-  <h2>Goals Details</h2>
-  <h1><%= @goal.name %></h1>
-  <h3>Goal description</h3>
-   <%= @goal.created_at.localtime.strftime('%a, %d %b %Y %H:%M:%S') %></br>
-   <%= @goal.description  %></br>
-   <% @subtasks.each do |subtask| %>
-     <%= subtask.name %>
-   <% end %>
-   <%= @goal.due_time.strftime('%a, %d %b %Y %H:%M:%S') %></br>
-   <div class='dynamic'>
-     <%= render :partial => 'goals/count_down_portion' %>
-     <%= render :partial => '/subtasks/new', locals: {subtask: @goal.subtasks.new} %>
-   </div>
-</div>
+  <div class="container medium-8 medium-centered small-11 small-centered">
+    <div class="title">
+      <h3><%= @goal.name %></h3>
+    </div>
+    <div class="form">
+      <div class="row, height">
+        <div class="medium-10 columns">
+          <p><spam class="finish-by">Finish by: <%= @goal.due_time.strftime('%a, %d %b %Y')%>
+              <spam class="days-left-details"> <%= @goal.amount_of_time_left_to_finish_goal %>
+                <spam class="finish-by">Created on: <%= @goal.created_at.localtime.strftime('%a, %d %b %Y') %></p>
+        </div>
+        <div class="medium-2 columns">
+          <%= link_to 'Edit', edit_goal_path(@goal), class:'align_right' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-3 columns">
+          <h5>Description:</h5>
+        </div>
+        <div class="medium-6 columns">
+          <ul>
+            <li class="created-on"></li>
+                </ul>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-9 columns, description">
+          <%= @goal.description %></br>
+      </div>
+        <div class="medium-3 columns"></div>
+      </div>
+      <div class="row">
+      <div classs="medium-3 columns"><h5>Subgoals:</h5></div>
+
+    </div>
+      <div class="row">
+        <div class="medium-9 columns">
+          <% @subtasks.each do |subtask| %>
+          <div class="description"><%= subtask.name %>
+          </div>
+        </br>
+        <% end %>
+        </div>
+        <div class="medium-3 columns">
+
+        </div>
+      </div>
+
+
+         <div class='dynamic'>
+         <%= render :partial => '/subtasks/new', locals: {subtask: @goal.subtasks.new} %>
+       </div>
+    </div>
+  </div>
