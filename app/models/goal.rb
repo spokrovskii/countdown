@@ -20,6 +20,13 @@ class Goal < ActiveRecord::Base
     seconds_fraction = (minutes - minutes_number)
     seconds = seconds_fraction * 60
     seconds_number = seconds.floor
-    @time_left = days_number.to_s + ' days left to finish '
+
+    if days_number <1
+      @time_left = "it should be done by now"
+    elsif days_number = 1
+      @time_left = days_number.to_s + ' day left to finish '
+    else
+      @time_left = days_number.to_s + ' days left to finish '
+    end
   end
 end
