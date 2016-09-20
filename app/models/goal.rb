@@ -23,7 +23,7 @@ class Goal < ActiveRecord::Base
 
     if days_number <1
       @time_left = "it should be done by now"
-    elsif days_number = 1
+    elsif days_number == 1
       @time_left = days_number.to_s + ' day left to finish '
     else
       @time_left = days_number.to_s + ' days left to finish '
