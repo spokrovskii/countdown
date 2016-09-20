@@ -21,13 +21,6 @@ class Goal < ActiveRecord::Base
     seconds = seconds_fraction * 60
     seconds_number = seconds.floor
 
-    case
-    when days_number < 1
-      @time_left = 'should be done by now'
-    when days_number == 1
-      @time_left = days_number.to_s + ' day left to finish '
-    else @time_left
-      @time_left = days_number.to_s + ' days left to finish '
-    end
+    @time_left = days_number.to_s + ' days left to finish '
   end
 end
