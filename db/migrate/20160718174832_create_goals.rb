@@ -8,6 +8,7 @@ class CreateGoals < ActiveRecord::Migration
       t.timestamp :updated_at
       t.timestamp :due_time
       t.integer :user_id
+      t.integer :subtask_id
     end
   end
 end
