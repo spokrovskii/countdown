@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Goal from '/.components/Goal';
+import Goal from './Goal';
 
 class Timer extends Component {
   constructor(props) {
@@ -36,6 +36,7 @@ class Timer extends Component {
           key={goal.id}
           name={goal.name}
           description={goal.description}
+          startDate={goal.created_at}
         />
       )
     });
