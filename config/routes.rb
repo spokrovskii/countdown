@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 
   resources :homepage, only: [:index]
 
+  namespace :api do
+    namespace :v1 do
+      resources :goals, only: [:index, :create, :destroy]
+    end
+  end
+
   resources :goals, only: [:index,
                            :show,
                            :new,

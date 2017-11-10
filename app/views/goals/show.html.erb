@@ -6,7 +6,7 @@
       <div class="row, height">
         <div class="medium-10 columns">
           <p><spam class="finish-by">Finish by: <%= @goal.due_time.strftime('%a, %d %b %Y')%>
-              <spam class="days-left-details"> <%= countdown @goal.amount_of_time_left_to_finish_goal %>
+              <spam class="days-left-details"> <%=  @goal.amount_of_time_left_to_finish_goal %>
                 <spam class="finish-by">Created on: <%= @goal.created_at.localtime.strftime('%a, %d %b %Y') %></p>
         </div>
         <div class="medium-2 columns">
@@ -42,7 +42,6 @@
         <% end %>
         </div>
         <div class="medium-3 columns">
-
         </div>
       </div>
 
