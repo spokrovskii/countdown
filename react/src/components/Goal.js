@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const Goal = props => {
   return(
@@ -6,6 +7,7 @@ const Goal = props => {
       <div>{props.name}</div>
       <div>{props.description}</div>
       <div>{props.startDate}</div>
+      <div>{props.amountTimeLeft}</div>
     </div>
   );
 }
