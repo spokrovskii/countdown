@@ -1,12 +1,13 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Timer from './components/Timer';
+import Goals from './components/Goals';
+
 
 
 $(function () {
     ReactDOM.render(
-      <Timer />,
+      <Goals />,
       document.getElementById('timer')
     );
 });
