@@ -1,19 +1,14 @@
-
 import React, { Component } from 'react';
 import moment from 'moment';
-
-import Flash from '../lib/Flash';
 
 class  NewGoal extends Component {
   constructor(props) {
     super(props);
 
     this.state ={
-
       errors: {},
       name: '',
       description: ''
-
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -39,21 +34,19 @@ class  NewGoal extends Component {
       contentType: 'application/json',
       data: JSON.stringify({ name: this.state.name, description: this.state.description })
     })
-      .done((data) => {
-        console.log("goal created")
-        if (data.errors) {
-          this.setState({ errors: data.errors });
-        } else {
-          this.setState({ name: '', description: '' });
-        }
-      
+    .done((data) => {
+      console.log("goal created")
+      if (data.errors) {
+        this.setState({ errors: data.errors });
+      } else {
+        this.setState({ name: '', description: '' });
+      }
     });
   }
 
-
   render() {
-  let nameError = <div className="error"><span className="error-star">*</span>{this.state.errors.name}</div>
-  let descriptionError = <div className="error"><span className="error-star">*</span>{this.state.errors.decription}</div>
+    let nameError = <div className="error"><span className="error-star">*</span>{this.state.errors.name}</div>
+    let descriptionError = <div className="error"><span className="error-star">*</span>{this.state.errors.decription}</div>
 
     return (
       <form className="callout" onSubmit={this.handleFormSubmit}>
@@ -65,24 +58,21 @@ class  NewGoal extends Component {
           name = 'name'
           onChange={this.handleNameCreation}
         />
-      {descriptionError}
-      <label>Description</label>
-      <input
-        type="text"
-        value={this.state.description}
-        name = 'name'
+        {descriptionError}
+        <label>Description</label>
+        <input
+          type="text"
+          value={this.state.description}
+          name = 'name'
           name = 'description'
           onChange={this.handleDescriptionCreation}
-        />
-        <div className="button-group">
-          <button className="button" type="submit">Save</button>
-
-        </div>
-      </form>
+          />
+          <div className="button-group">
+            <button className="button" type="submit">Save</button>
+          </div>
+        </form>
     );
   }
 }
-
-
 
 export default NewGoal;
