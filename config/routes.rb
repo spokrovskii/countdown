@@ -17,7 +17,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :goals, only: [:index, :create, :destroy]
+      resources :goals, only: [:index,
+                               :show,
+                               :new,
+                               :edit,
+                               :create,
+                               :update,
+                               :destroy]
     end
   end
 

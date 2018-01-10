@@ -16,6 +16,7 @@ gem 'foundation-datetimepicker-rails', '~> 0.2.4'
 gem 'pusher'
 gem 'pg_search'
 gem 'twitter'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'capybara'

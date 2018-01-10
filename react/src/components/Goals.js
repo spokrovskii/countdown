@@ -9,11 +9,15 @@ class Goals extends Component {
 
     this.state = {
       goals: [],
-
+      newGoal: {
+        name: '',
+        description: '',
+        dueDate: ''
+      }
     };
-
     this.getGoals = this.getGoals.bind(this);
     this.populateGoals = this.populateGoals.bind(this);
+
   }
 
   componentDidMount(){
@@ -22,7 +26,7 @@ class Goals extends Component {
 
   getGoals() {
     $.ajax({
-      url: `http://localhost:3000/api/v1/goals.json`,
+      url: `/api/v1/goals.json`,
       method: 'GET',
       success: this.populateGoals
     });
@@ -31,6 +35,7 @@ class Goals extends Component {
   populateGoals(data) {
     this.setState({ goals: data.goals });
   }
+
 
 
 
