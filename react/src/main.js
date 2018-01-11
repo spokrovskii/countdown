@@ -6,6 +6,7 @@ import NewGoal from './components/NewGoal';
 
 
 
+
 $(function () {
   let timer = document.getElementById('timer');
     if (timer){

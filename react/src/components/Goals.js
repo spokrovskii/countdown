@@ -9,15 +9,9 @@ class Goals extends Component {
 
     this.state = {
       goals: [],
-      newGoal: {
-        name: '',
-        description: '',
-        dueDate: ''
-      }
     };
     this.getGoals = this.getGoals.bind(this);
     this.populateGoals = this.populateGoals.bind(this);
-
   }
 
   componentDidMount(){
@@ -36,9 +30,6 @@ class Goals extends Component {
     this.setState({ goals: data.goals });
   }
 
-
-
-
   render() {
 
     let goals = this.state.goals.map(goal => {
@@ -54,7 +45,6 @@ class Goals extends Component {
         />
       )
     });
-
 
     return(
       <div>

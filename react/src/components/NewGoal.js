@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import DatePicker from 'react-datepicker';
+
 
 class  NewGoal extends Component {
   constructor(props) {
     super(props);
-
-    this.state ={
+    this.state = {
       errors: {},
       name: '',
-      description: ''
+      description: '',
+      dueDateTime: moment()
     }
-
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleNameCreation = this.handleNameCreation.bind(this);
-    this.handleDescriptionCreation= this.handleDescriptionCreation.bind(this);
+    this.handleDescriptionCreation = this.handleDescriptionCreation.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.hanleDueDateTime = this.hanleDueDateTime.bind(this);
 
   }
 
-  handleNameCreation(event){
+  handleNameCreation(event) {
     this.setState({ name: event.target.value })
   }
 
-  handleDescriptionCreation(event){
-    this.setState({ description: event.target.value})
+  handleDescriptionCreation(event) {
+    this.setState({ description: event.target.value })
   }
 
-  handleFormSubmit(event){
+  handleFormSubmit(event) {
     event.preventDefault();
     $.ajax({
       url:`/api/v1/goals`,
       type: 'POST',
       dataType:'json',
       contentType: 'application/json',
-      data: JSON.stringify({ name: this.state.name, description: this.state.description })
+      data: JSON.stringify({ name: this.state.name, description: this.state.description, due_time: this.state.dueDateTime })
     })
     .done((data) => {
       console.log("goal created")
@@ -42,6 +44,10 @@ class  NewGoal extends Component {
         this.setState({ name: '', description: '' });
       }
     });
+  }
+
+  hanleDueDateTime(date) {
+    this.setState({ dueDateTime: date });
   }
 
   render() {
@@ -66,11 +72,18 @@ class  NewGoal extends Component {
           name = 'name'
           name = 'description'
           onChange={this.handleDescriptionCreation}
-          />
-          <div className="button-group">
-            <button className="button" type="submit">Save</button>
-          </div>
-        </form>
+        />
+      <label><h2>Select date and time</h2></label>
+          <DatePicker
+            selected={this.state.dueDateTime}
+            onChange={this.hanleDueDateTime}
+            showTimeSelect
+            dateFormat="LLL"
+        />
+        <div className="button-group">
+          <button className="button" type="submit">Save</button>
+        </div>
+      </form>
     );
   }
 }
