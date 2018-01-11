@@ -5,32 +5,7 @@
     </div>
     <div class="form"
       <ul>
-       <% @goals.each do |goal| %>
-        <div class="row margin-top">
-           <div class="small-8 columns">
-              <ul>
-                <li><%= link_to goal.name, goal_path(goal), class: 'link_to' %></li>
-              </ul>
-           </div>
-           <div class="small-4 columns">
-              <%= link_to 'Edit', edit_goal_path(goal), class: 'link_to' %>
-              <%= link_to 'Delete', goal_path(goal), method: 'delete', class: 'link_to' %>
-           </div>
-        </div>
-        <div class="row">
-          <div class="small-12 columns">
-            <ul class="description">
-              <li><%= goal.description %></li>
-            </ul>
-          </div>
-          <div class="small-12 columns">
-            <ul>
-              <li class="created-on"><p>Finish by: <%= goal.due_time.strftime('%a, %d %b %Y')%>
-              <spam class="finish-by">Created on: <%= goal.created_at.localtime.strftime('%a, %d %b %Y') %>
-              <spam class="days-left"> <%= goal.amount_of_time_left_to_finish_goal %> </p></li>
-              </ul>
 
-           <% end %>
            <div id="timer"></div>
           </div>
         </div>
