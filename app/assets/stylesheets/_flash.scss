@@ -1,22 +1,7 @@
-.callout.success {
-  background-color: $dark-grey;
-  color: $white;
+.padding-top {
+  padding-top: 25px;
 }
 
-.callout.alert {
-  background-color: $callout-yellow;
-  color: $white;
-}
-
-.close-button {
-  color: $white;
-}
-
-.close-button:hover {
-  color: $blue;
-}
-
-.errors {
-  background: rgba($white, 0.8);
-  padding: 10px 0 10px 10px;
+.message {
+  padding-left: 10px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Timer from './Timer';
+import { Form, FormControl, Button, Grid } from 'react-bootstrap'
 
 class Goal extends Component {
   constructor(props){
@@ -59,15 +60,18 @@ class Goal extends Component {
               />
     }
     return(
+
       <div>
-        <div>
-          <div>{this.props.name}</div>
-          <div>{this.props.description}</div>
-          <div>{this.props.startDate}</div>
-          <div>{this.props.dueTime}</div>
-        </div>
-        <div>{time}</div>
-      </div>
+         <div>
+           <div>{this.props.name}</div>
+           <div>{this.props.description}</div>
+           <div>{this.props.startDate}</div>
+           <div>{this.props.dueTime}</div>
+         </div>
+         <div>{time}</div>
+       </div>
+
+
     );
   }
 }

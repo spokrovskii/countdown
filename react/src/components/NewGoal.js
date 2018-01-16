@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
+import { Form, FormControl, Button } from 'react-bootstrap'
 
 
 class  NewGoal extends Component {
@@ -55,10 +56,10 @@ class  NewGoal extends Component {
     let descriptionError = <div className="error"><span className="error-star">*</span>{this.state.errors.decription}</div>
 
     return (
-      <form className="callout" onSubmit={this.handleFormSubmit}>
+      <Form inline className="callout" onSubmit={this.handleFormSubmit}>
         {nameError}
         <label>Name</label>
-        <input
+        <FormControl
           type="text"
           value={this.state.name}
           name = 'name'
@@ -66,7 +67,7 @@ class  NewGoal extends Component {
         />
         {descriptionError}
         <label>Description</label>
-        <input
+        <FormControl
           type="text"
           value={this.state.description}
           name = 'name'
@@ -81,9 +82,9 @@ class  NewGoal extends Component {
             dateFormat="LLL"
         />
         <div className="button-group">
-          <button className="button" type="submit">Save</button>
+          <Button type="submit">Save</Button>
         </div>
-      </form>
+      </Form>
     );
   }
 }
