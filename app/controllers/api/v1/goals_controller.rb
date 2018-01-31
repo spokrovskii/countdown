@@ -21,6 +21,12 @@ class Api::V1::GoalsController < ApiController
         end
   end
 
+  def destroy
+    Goal.destroy(params[:id])
+    render json: {message: 'Goal deleted' }, status: :ok
+  end
+
+
   private
   def goal_params
     params.require(:goal).permit(:name, :description, :due_time)

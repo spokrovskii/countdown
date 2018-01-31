@@ -11,9 +11,20 @@ class Goal extends Component {
       hours:0,
       mins: 0,
       secs: 0,
-      expired: false
+      expired: false,
+
     };
     this.getTimeUntill = this.getTimeUntill.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  handleDelete(goal) {
+    this.props.onDelete(this.props.goal);
+  }
+
+  handleEdit() {
+  this.props.onEdit(this.props.goal);
   }
 
   componentWillMount() {
@@ -21,7 +32,11 @@ class Goal extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.getTimeUntill(this.props.deadline), 1000)
+    this.interval = setInterval(() => this.getTimeUntill(this.props.deadline), 1000)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval);
   }
 
   leading0(num) {
@@ -40,12 +55,12 @@ class Goal extends Component {
       let mins = parseInt(timeLeft/(60*1000)-(days*24*60)-(hours*60));
       let secs = parseInt(timeLeft/(1000)-(mins*60)-(days*24*60*60)-(hours*60*60));
 
-      console.log('seconds', secs, 'minutes', mins, 'hours', hours, 'days', days)
       this.setState({days, hours, mins, secs})
       }
   }
 
   render() {
+
     let isExpired;
     let time = null;
     if (this.state.expired) {
@@ -67,12 +82,16 @@ class Goal extends Component {
            <div>{this.props.description}</div>
            <div>{this.props.startDate}</div>
            <div>{this.props.dueTime}</div>
+           <div>{this.props.children}</div>
          </div>
          <div>{time}</div>
+         <button className = "Delete-goal" onClick={this.handleDelete}>Delete Goal</button>
+         <button className = "Edit-goal" onClick={this.handleEdit}>Edit Goal</button>
        </div>
 
 
     );
+
   }
 }
 
