@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom';
 import Goals from './components/Goals';
 import NewGoal from './components/NewGoal';
 
-
-
-
 $(function () {
   let timer = document.getElementById('timer');
     if (timer){

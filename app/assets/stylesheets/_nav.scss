@@ -1,44 +1,5 @@
-.title-bar {
-  background: $black;
-  padding: .5rem; }
+$grid-float-breakpoint: 320px;
 
-.top-bar {
-  background: $black;
-  padding: 10 px;
-}
-
-.menu-text {
-  background: $black;
-  padding: 0; }
-
-.menu.dropdown {
-  background: $black;
-}
-
-.menu > li > a {
-  color: $white;
-
-  ul {
-    background: $white;
-
-    li {
-      background: $white;
-
-      a {
-        color: $white;
-        font-weight: lighter;
-
-        a:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-}
-
-label {
-  color: $white;
-  font-size: 15px;
-  margin: 0;
-  text-align: left;
+.navbar {
+  background-color: $black;
 }
