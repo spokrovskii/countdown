@@ -7,6 +7,7 @@ class Api::V1::GoalsController < ApiController
     render json: { goals: goals}, status: :ok
   end
 
+
   def create
     goal = Goal.new(goal_params)
     goal.user_id = params[:user_id]
@@ -20,6 +21,11 @@ class Api::V1::GoalsController < ApiController
                        }, status: :bad_request
         end
   end
+
+  def update
+    render json: Goal.update(params[:id], goal_params)
+  end
+
 
   def destroy
     Goal.destroy(params[:id])

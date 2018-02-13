@@ -1,54 +1,63 @@
 import React, { Component } from 'react';
+import Goal from './Goal';
 
 class EditGoal extends Component {
   constructor(props){
     super(props);
     this.state = {
       updateGoalErrors: [],
-      updatedName: '',
+      name: '',
+      id: '',
       updatedDescription: '',
     }
-    this.updateName = this.updateName.bind(this);
-    this.saveChanges = this.saveChanges.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.getNameValue = this.getNameValue.bind(this);
   }
 
-  updateName(event){
-    this.setState({updateName: event.target.value })
+  componentDidMount() {
+    this.getNameValue();
   }
 
+  getNameValue(name) {
+    this.setState({name: this.props.name});
+    this.setState({id: this.props.goal.id});
+  }
 
-  saveChanges(event){
+  handleChange(event) {
+    this.setState({name: event.target.value })
+  }
+
+  handleSubmit(event){
     event.preventDefault();
     $.ajax({
-      url: `/api/v1/goals/${goal.id}`,
-      method: 'PUT'
+      url: `/api/v1/goals/${this.state.id}`,
+      method: 'PUT',
+      dataType:'json',
+      contentType: 'application/json',
+      data: JSON.stringify({ name: this.state.name })
     })
     .done((data) => {
-      console.log("goal updated")
       if (data.errors) {
         this.setState({ updateGoalErrors: data.errors });
       } else {
-        this.setState({ name: '', description: '' });
+        console.log("Goal updated in database")
+        this.props.update(this.state.name);
       }
     });
   }
 
-render() {
-  return(
-    <div>
-      <div>
-        <textarea value={this.props.name}
-                  onChange={this.updateName}>
-
-        </textarea>
-      </div>
-      <div>{this.props.description}</div>
-      <div>{this.props.dueTime}</div>
-      <div><button onClick={this.saveChanges}>Save</button></div>
-    </div>
-  );
-}
-
+  render() {
+    return(
+      <form onSubmit={this.handleSubmit}>
+        <div>
+          <textarea value={this.state.name}
+                    onChange={this.handleChange} />
+        </div>
+        <input type="submit" value="Save" />
+      </form>
+    );
+  }
 }
 
 export default EditGoal;
