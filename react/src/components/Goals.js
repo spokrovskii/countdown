@@ -24,12 +24,6 @@ class Goals extends Component {
     this.getGoals();
   }
 
-
-
-  componentWillUpdate(nextProps, nextState){
-console.log('will updated worked!')
-  }
-
   getGoals() {
     $.ajax({
       url: `/api/v1/goals.json`,
@@ -61,18 +55,19 @@ console.log('will updated worked!')
     this.setState({ editingGoalId: goal.id })
   }
 
-  updateGoals(name) {
+  updateGoals(name, description) {
   let goals = this.state.goals;
 
   goals = goals.map((currentGoal) =>{
     if(currentGoal.id == this.state.editingGoalId) {
       currentGoal.name = name;
+      currentGoal.description = description;
     }
     return currentGoal;
   });
 
-  this.setState({ goals: goals});
-  this.setState({editingGoalId: 0 })
+  this.setState({ goals: goals });
+  this.setState({ editingGoalId: 0 })
 
   console.log(this.state.goals);
   }
