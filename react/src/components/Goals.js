@@ -80,7 +80,7 @@ class Goals extends Component {
           <EditGoal key={goal.id}
                     name={goal.name}
                     description={goal.description}
-                    dueTime={moment(goal.due_time).format("MMMM Do YYYY, h:mm a")}
+                    dueTime={moment(goal.due_time).format("lll")}
                     goal={goal}
                     update={this.updateGoals}
            />
@@ -90,8 +90,8 @@ class Goals extends Component {
           <Goal key={goal.id}
                 name={goal.name}
                 description={goal.description}
-                startDate={moment(goal.created_at).format("MMMM Do YYYY, h:mm a")}
-                dueTime={moment(goal.due_time).format("MMMM Do YYYY, h:mm a")}
+                startDate={moment(goal.created_at).format("lll")}
+                dueTime={moment(goal.due_time).format("lll")}
                 deadline={goal.due_time}
                 goal={goal}
                 onDelete={this.deleteGoal}
@@ -102,8 +102,17 @@ class Goals extends Component {
     });
   return(
     <div>
-      <h1>Goals</h1>
-      <div>
+      <div className="row">
+        <h1>Goals</h1>
+        <div className="col-xs-6 sub-title">
+          NAME OF THE GOAL
+        </div>
+        <div className="col-xs-3 subtitle-no-margin">
+          TIME LEFT UNTILL
+        </div>
+        <div className="col-xs-3 sub-title">
+          CREATED
+        </div>
         {goals}
       </div>
     </div>

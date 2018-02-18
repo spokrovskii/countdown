@@ -1,0 +1,65 @@
+.timer-days, .timer-hours, .timer-minutes, .timer-seconds {
+  display: inline;
+  margin-right: 2px;
+}
+
+.timer-display {
+  display:inline;
+}
+
+.sub-title {
+  font-size: 16px;
+  font-style: bold;
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 35px 0px 22px 0px;
+  color: #a3a9b0;
+  padding: 0;
+}
+
+.subtitle-no-margin {
+  font-size: 16px;
+  font-style: bold;
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #a3a9b0;
+  margin: 35px 0px 22px 0px;
+  padding: 0;
+}
+
+.due-date {
+
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #a3a9b0;
+  font-size: 12px;
+  padding-top: 6px;
+  padding-bottom: 3px;
+}
+
+.name {
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.description {
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #a3a9b0;
+  font-size: 16px;
+  font-weight: 200;
+  margin: 5px 0px 5px 0px;
+}
+
+.start-date {
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #a3a9b0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.clock{
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #000;
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 2px;
+}

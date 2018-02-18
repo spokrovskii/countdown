@@ -18,7 +18,6 @@
    <![endif]-->
   </head>
   <body>
-    <%= render 'shared/navigation_bar' %>
       <%= notice %>
       <%= alert %>
      <div class="row padding-top">
@@ -43,8 +42,11 @@
     </div>
     <% end %>
     </div>
-    <div id="main-container" class="container">
-      <%= yield %>
+    <div class="container h-100">
+      <div class="row">
+        <div class="col-xs-2 nav-bar-main"><%= render 'shared/navigation_bar' %></div>
+          <div class="margin-top-main col-xs-10 col-md-10"><%= yield %></div>
+      </div>
     </div>
   </body>
 </html>

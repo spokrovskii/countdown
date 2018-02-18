@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import DatePicker from 'react-datepicker';
-import { Form, FormControl, Button } from 'react-bootstrap'
+import { Form, FormControl, Button } from 'react-bootstrap';
+import DateTime from 'react-datetime';
 
 
 class  NewGoal extends Component {
@@ -52,39 +52,40 @@ class  NewGoal extends Component {
   }
 
   render() {
-    let nameError = <div className="error"><span className="error-star">*</span>{this.state.errors.name}</div>
-    let descriptionError = <div className="error"><span className="error-star">*</span>{this.state.errors.decription}</div>
+    let nameError = <div className="error"><span className="error-star"></span>{this.state.errors.name}</div>
+    let descriptionError = <div className="error"><span className="error-star"></span>{this.state.errors.decription}</div>
 
     return (
-      <Form inline className="callout" onSubmit={this.handleFormSubmit}>
-        {nameError}
-        <label>Name</label>
-        <FormControl
-          type="text"
-          value={this.state.name}
-          name = 'name'
-          onChange={this.handleNameCreation}
-        />
-        {descriptionError}
-        <label>Description</label>
-        <FormControl
-          type="text"
-          value={this.state.description}
-          name = 'name'
-          name = 'description'
-          onChange={this.handleDescriptionCreation}
-        />
-      <label><h2>Select date and time</h2></label>
-          <DatePicker
-            selected={this.state.dueDateTime}
-            onChange={this.hanleDueDateTime}
-            showTimeSelect
-            dateFormat="LLL"
-        />
-        <div className="button-group">
-          <Button type="submit">Save</Button>
-        </div>
-      </Form>
+      <div className="form-group">
+        <Form className="callout" onSubmit={this.handleFormSubmit}>
+          {nameError}
+          <label>Name</label>
+          <FormControl
+            type="text"
+            value={this.state.name}
+            name = 'name'
+            onChange={this.handleNameCreation}
+          />
+          {descriptionError}
+          <div className="form">
+            <label>Description</label>
+             <textarea className="form-control" rows="4"
+              type="text"
+              value={this.state.description}
+              name = 'description'
+              onChange={this.handleDescriptionCreation}
+            />
+          </div>
+        <label>Select date and time</label>
+            <DateTime
+              selected={this.state.dueDateTime}
+              onChange={this.hanleDueDateTime}
+          />
+          <div>
+            <Button className="btn btn-outline-primary" type="submit">Save</Button>
+          </div>
+        </Form>
+      </div>
     );
   }
 }
