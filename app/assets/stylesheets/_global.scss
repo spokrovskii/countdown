@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.alignment-right {
+  text-align: right;
+}
+
 .no-padding {
   padding: 0px;
 }
@@ -17,4 +21,6 @@
 
 hr {
   border-top: 1px solid #eeeeee;
+  margin-left: 0px;
+  width: 90%;
 }

@@ -87,11 +87,11 @@ class Goal extends Component {
 
       <div>
          <div className="row">
+          <div><spam><hr /></spam></div>
           <div className="col-xs-6">
             <div className="name">{this.props.name}</div>
               <div className="col-xs-11 no-padding">
                 <div className="description">{this.props.description}</div>
-                <hr />
               </div>
             </div>
             <div className="col-xs-3 no-padding">

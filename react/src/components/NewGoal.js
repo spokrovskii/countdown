@@ -56,35 +56,37 @@ class  NewGoal extends Component {
     let descriptionError = <div className="error"><span className="error-star"></span>{this.state.errors.decription}</div>
 
     return (
-      <div className="form-group">
-        <Form className="callout" onSubmit={this.handleFormSubmit}>
-          {nameError}
-          <label>Name</label>
-          <FormControl
-            type="text"
-            value={this.state.name}
-            name = 'name'
-            onChange={this.handleNameCreation}
-          />
-          {descriptionError}
-          <div className="form">
-            <label>Description</label>
-             <textarea className="form-control" rows="4"
+      <div class="col-xs-8 col-xs-offset-2 margin-new-goal">
+        <div className="form-group">
+          <Form className="callout" onSubmit={this.handleFormSubmit}>
+            {nameError}
+            <label>Name</label>
+            <FormControl
               type="text"
-              value={this.state.description}
-              name = 'description'
-              onChange={this.handleDescriptionCreation}
+              value={this.state.name}
+              name = 'name'
+              onChange={this.handleNameCreation}
             />
-          </div>
-        <label>Select date and time</label>
-            <DateTime
-              selected={this.state.dueDateTime}
-              onChange={this.hanleDueDateTime}
-          />
-          <div>
-            <Button className="btn btn-outline-primary" type="submit">Save</Button>
-          </div>
-        </Form>
+            {descriptionError}
+            <div className="form">
+              <label>Description</label>
+               <textarea className="form-control" rows="4"
+                type="text"
+                value={this.state.description}
+                name = 'description'
+                onChange={this.handleDescriptionCreation}
+              />
+            </div>
+          <label>Select date and time</label>
+              <DateTime
+                selected={this.state.dueDateTime}
+                onChange={this.hanleDueDateTime}
+            />
+            <div>
+              <Button className="btn btn-outline-primary" type="submit">Save</Button>
+            </div>
+          </Form>
+        </div>
       </div>
     );
   }

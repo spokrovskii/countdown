@@ -1,42 +1,51 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs col-xs-offset-4 justify-content-center">
+
+<div class="row">
+  <div class="col-xs col-xs-offset-2 justify-content-center">
     <h3>sign in</h3>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: 'form'}) do |f| %>
-        <div class="field form-group">
-          <%= f.label :email, class: 'control-label' %></br>
-          <%= f.email_field :email, autofocus: true, class: 'col-xs-6 control-label' %></br>
-        </div>
+    <div class="row">
+      <div class="col-xs-6">
 
-        <div class="field form-group">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", class: 'col-xs-6 control-label' %></br>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: 'form'}) do |f| %>
+        <div class="form-group">
+          <label><%= f.label :email, class: 'control-label' %></label>
+          <%= f.email_field :email, autofocus: true, class: 'col-xs-6 form-control control-label' %></br>
         </div>
-
-          <% if devise_mapping.rememberable? -%>
-    <div class="form-group">
-      <div class="col-xs">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="1">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </label>
-         </div>
-       </div>
+        <div class="form-group">
+          <label><%= f.label :password, class: 'control-label password'%></label>
+          <%= f.password_field :password, autocomplete: "off", class: 'col-xs-6 form-control control-label' %></br>
+        </div>
+      </div>
     </div>
+      <% if devise_mapping.rememberable? -%>
+      <div class="row no-padding">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="1">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </label>
+               </div>
+             </div>
+           </div>
           <% end -%>
+          <div class="col-xs-5">
+            <div class="actions form-group">
 
-          <div class="actions form-group">
-            <div class="col-xs-offset-5">
-            <%= f.submit "Log in" %>
+                <%= f.submit "Log in" %>
+
+            <% end %>
             </div>
+          </div>
          </div>
-        <% end %>
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-        <% end -%>
-      </form>
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <% end -%>
+        </div>
+      </div>
+
   </div>
-</div>
 </div>
