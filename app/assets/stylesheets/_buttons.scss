@@ -1,9 +1,14 @@
-.button {
-  background-color: $black;
-  border: 0;
+.btn-default {
+  color: #3392f3;
+  border-color: #3392f3;
 }
 
-ul.button-group {
-  display: inline-block;
+.btn-default:hover {
+  color: #000;
+  border-color: #000;
+  background-color: #fff;
+}
 
+.create-edit {
+  margin: 10px 8px 10px 0px;
 }

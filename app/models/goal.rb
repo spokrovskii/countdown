@@ -4,7 +4,7 @@ class Goal < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   accepts_nested_attributes_for :subtasks
-  
+
   def amount_of_time_left_to_finish_goal
     time = Time.now
     diff = due_time - time

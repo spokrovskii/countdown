@@ -51,7 +51,7 @@ class Goal extends Component {
       this.setState({expired:true})
     } else {
       let days = parseInt(timeLeft/(24*3600*1000));
-      let hours =parseInt(timeLeft/(3600*1000)-(days*24));
+      let hours = parseInt(timeLeft/(3600*1000)-(days*24));
       let mins = parseInt(timeLeft/(60*1000)-(days*24*60)-(hours*60));
       let secs = parseInt(timeLeft/(1000)-(mins*60)-(days*24*60*60)-(hours*60*60));
 
@@ -66,27 +66,47 @@ class Goal extends Component {
     if (this.state.expired) {
       isExpired ='Time is up';
       time = <Timer isExpired={isExpired} />
-    } else {
-      time = <Timer
-              days={<div className="Clock-days">{this.leading0(this.state.days)} days</div>}
-              hours={<div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>}
-              minutes={<div className="Clock-minutes">{this.leading0(this.state.mins)} minutes</div>}
-              seconds={<div className="Clock-seconds">{this.leading0(this.state.secs)} seconds</div>}
-              />
-    }
+      } else {
+        if (this.leading0(this.state.days) == 0) {
+          time = <Timer
+                  days={<div className="hidden">{this.leading0(this.state.days)} days </div>}
+                  hours={<div className="timer-hours">{this.leading0(this.state.hours)} :</div>}
+                  minutes={<div className="timer-minutes">{this.leading0(this.state.mins)} :</div>}
+                  seconds={<div className="timer-seconds">{this.leading0(this.state.secs)}</div>}
+                  />
+        } else {
+          time = <Timer
+                  days={<div className="timer-days">{this.leading0(this.state.days)} days </div>}
+                  hours={<div className="timer-hours">{this.leading0(this.state.hours)} :</div>}
+                  minutes={<div className="timer-minutes">{this.leading0(this.state.mins)} :</div>}
+                  seconds={<div className="timer-seconds">{this.leading0(this.state.secs)}</div>}
+                  />
+        }
+      }
     return(
 
       <div>
-         <div>
-           <div>{this.props.name}</div>
-           <div>{this.props.description}</div>
-           <div>{this.props.startDate}</div>
-           <div>{this.props.dueTime}</div>
-           <div>{this.props.children}</div>
+         <div className="row">
+          <div><spam><hr /></spam></div>
+          <div className="col-xs-6">
+            <div className="name">{this.props.name}</div>
+              <div className="col-xs-11 no-padding">
+                <div className="description">{this.props.description}</div>
+              </div>
+            </div>
+            <div className="col-xs-3 no-padding">
+              {this.props.children}
+                <div className="due-date">{this.props.dueTime}</div>
+              <div className="no-padding clock">{time}</div>
+            </div>
+            <div className="col-xs-3 no-padding">
+              <div className="start-date no-padding">{this.props.startDate}</div>
+              <Button className="btn btn-outline-primary btn-sm create-edit" type="submit" onClick={this.handleDelete}>Delete Goal</Button>
+              <Button className="btn btn-outline-primary btn-sm" type="submit"  onClick={this.handleEdit}>Edit Goal</Button>
+            </div>
          </div>
-         <div>{time}</div>
-         <button className = "Delete-goal" onClick={this.handleDelete}>Delete Goal</button>
-         <button className = "Edit-goal" onClick={this.handleEdit}>Edit Goal</button>
+
+
        </div>
 
 

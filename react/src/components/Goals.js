@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Goal from './Goal';
 import EditGoal from './EditGoal';
-import Grid from 'react-bootstrap/lib/Grid';
 
 import moment from 'moment';
 
@@ -11,12 +10,14 @@ class Goals extends Component {
 
     this.state = {
       goals: [],
-      editingGoalId: 0
+      editingGoalId: 0,
+      update: 'false'
     };
     this.getGoals = this.getGoals.bind(this);
     this.populateGoals = this.populateGoals.bind(this);
     this.deleteGoal = this.deleteGoal.bind(this);
     this.editGoal = this.editGoal.bind(this);
+    this.updateGoals = this.updateGoals.bind(this);
   }
 
   componentDidMount(){
@@ -54,44 +55,67 @@ class Goals extends Component {
     this.setState({ editingGoalId: goal.id })
   }
 
+  updateGoals(name, description) {
+  let goals = this.state.goals;
+
+  goals = goals.map((currentGoal) =>{
+    if(currentGoal.id == this.state.editingGoalId) {
+      currentGoal.name = name;
+      currentGoal.description = description;
+    }
+    return currentGoal;
+  });
+
+  this.setState({ goals: goals });
+  this.setState({ editingGoalId: 0 })
+
+  console.log(this.state.goals);
+  }
+
   render() {
 
     let goals = this.state.goals.map(goal => {
       if(this.state.editingGoalId === goal.id) {
-      return(
-        <EditGoal key={goal.id}
-                  name={goal.name}
-                  description={goal.description}
-                  dueTime={moment(goal.due_time).format("MMMM Do YYYY, h:mm a")}
-                  goal={goal}
-                  onSave={this.updateGoal}
-                  onCancel={this.cancelUpdate}
-                   />
-        );
+        return(
+          <EditGoal key={goal.id}
+                    name={goal.name}
+                    description={goal.description}
+                    dueTime={moment(goal.due_time).format("lll")}
+                    goal={goal}
+                    update={this.updateGoals}
+           />
+          );
        } else {
          return(
-        <Goal
-          key={goal.id}
-          name={goal.name}
-          description={goal.description}
-          startDate={moment(goal.created_at).format("MMMM Do YYYY, h:mm a")}
-          dueTime={moment(goal.due_time).format("MMMM Do YYYY, h:mm a")}
-          deadline={goal.due_time}
-          goal={goal}
-          onDelete={this.deleteGoal}
-          onEdit={this.editGoal}
-        />
-    );
-    }
+          <Goal key={goal.id}
+                name={goal.name}
+                description={goal.description}
+                startDate={moment(goal.created_at).format("lll")}
+                dueTime={moment(goal.due_time).format("lll")}
+                deadline={goal.due_time}
+                goal={goal}
+                onDelete={this.deleteGoal}
+                onEdit={this.editGoal}
+          />
+          );
+        }
     });
-    return(
-      <div>
+  return(
+    <div>
+      <div className="row">
         <h1>Goals</h1>
-        <div>
-          {goals}
+        <div className="col-xs-6 sub-title">
+          NAME OF THE GOAL
         </div>
-
+        <div className="col-xs-3 subtitle-no-margin">
+          TIME LEFT UNTILL
+        </div>
+        <div className="col-xs-3 sub-title">
+          CREATED
+        </div>
+        {goals}
       </div>
+    </div>
     );
   }
 }

@@ -1,51 +1,22 @@
-.form {
-  background: rgba($dark-grey, 0.5);
-  margin-top: 70px;
-  padding: 18px;
-  padding-bottom: 18px;
-}
-
-.sign-up-form {
-  background: rgba($dark-grey, 0.5);
-  margin-top: 70px;
-  padding: 18px;
-  padding-bottom: 18px;
-}
-
-.margin-top {
-  margin-top: 50px;
-}
-
-.description {
-  background: rgba($grey, 0.6);
-  padding: 6px;
-  color: $light-grey;
-}
-
-.created-on {
-  font-size: 12px;
-  color: $light-grey;
-  padding-left: 6px;
-  padding-top: 2px;
-  background: rgba($grey, 0.6);
-}
-
-.finish-by {
-  padding-left: 16px;
-  color: $white;
-  font-size: 12px
-}
-
-.days-left-details {
-  padding-left: 20px;
-  color: $bright-orange;
-  font-size: 24px;
+.form-group {
+  display: block;
 
 }
 
-.days-left {
-  padding-left: 20px;
-  color: $bright-orange;
-  font-size: 15px;
+label {
+    display: block;
+}
 
+input {
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+textarea {
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.password {
+width: 50%;
 }
