@@ -1,3 +1,7 @@
+html,body {
+  height: 100%;
+}
+
 @media (min-width: 1370px) {
   .container {
       width: 1370px;
@@ -23,4 +27,27 @@ hr {
   border-top: 1px solid #eeeeee;
   margin-left: 0px;
   width: 90%;
+}
+
+.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  flex-grow: 1;
+}
+
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+html,body {
+	height:100%;
 }

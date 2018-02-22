@@ -43,9 +43,13 @@
     <% end %>
     </div>
     <div class="container h-100">
-      <div class="row">
-        <div class="col-xs-2 nav-bar-main"><%= render 'shared/navigation_bar' %></div>
-          <div class="margin-top-main col-xs-10 col-md-10"><%= yield %></div>
+      <div class="row display-flex h-100">
+
+        <div class="col-md-3 col-xs-4 nav-bar-main">
+            <%= render 'shared/navigation_bar' %>
+        </div>
+
+        <div class="margin-top-main col-md-9 col-xs-8"><%= yield %></div>
       </div>
     </div>
   </body>
