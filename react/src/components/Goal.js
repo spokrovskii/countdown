@@ -88,7 +88,7 @@ class Goal extends Component {
       <div>
          <div className="row">
           <div><spam><hr /></spam></div>
-          <div className="col-xs-6">
+          <div className="col-xs-6 no-padding">
             <div className="name">{this.props.name}</div>
               <div className="col-xs-11 no-padding">
                 <div className="description">{this.props.description}</div>
@@ -97,12 +97,12 @@ class Goal extends Component {
             <div className="col-xs-3 no-padding">
               {this.props.children}
                 <div className="due-date">{this.props.dueTime}</div>
-              <div className="no-padding clock">{time}</div>
+              <div className="clock">{time}</div>
             </div>
             <div className="col-xs-3 no-padding">
-              <div className="start-date no-padding">{this.props.startDate}</div>
-              <Button className="btn btn-outline-primary btn-sm create-edit" type="submit" onClick={this.handleDelete}>Delete Goal</Button>
-              <Button className="btn btn-outline-primary btn-sm" type="submit"  onClick={this.handleEdit}>Edit Goal</Button>
+              <div className="start-date">{this.props.startDate}</div>
+              <div className="glyphicon glyphicon-trash" type="submit" onClick={this.handleDelete}></div>
+              <div className="glyphicon glyphicon-pencil" type="submit"  onClick={this.handleEdit}></div>
             </div>
          </div>
 

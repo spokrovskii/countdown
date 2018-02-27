@@ -13,3 +13,25 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function () {
+
+$( document ).ready(function() {
+  $('#sidebarCollapse').toggleClass('hidden');
+});
+
+  $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('hidden');
+      $('#sidebarCollapse').toggleClass('hidden');
+      $('#main').toggleClass('col-md-offset-1');
+  });
+
+  $('#dismiss').on('click', function () {
+      $('#sidebar').toggleClass('hidden');
+      $('#sidebarCollapse').toggleClass('hidden');
+      $('#main').toggleClass('col-md-offset-1');
+  });
+
+
+
+});
