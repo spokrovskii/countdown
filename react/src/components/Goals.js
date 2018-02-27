@@ -103,7 +103,9 @@ class Goals extends Component {
   return(
     <div>
       <div className="row">
-        <h1>Goals</h1>
+        <div className="col-xs-12 no-padding">
+          <div className="title">Goals</div>
+        </div>
         <div className="col-xs-6 sub-title">
           NAME OF THE GOAL
         </div>

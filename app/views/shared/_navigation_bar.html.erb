@@ -1,35 +1,39 @@
-<div class="margin-top-main full">
-
-  <div class="nav nav-margin">
-    <a class="navbar-brand" href="#">Count-Down</a>
-    <div>
-    <%= link_to  goals_path, method: 'get', class: 'glyphicons glyphicons-clock'  do %>
-      <i class="glyphicons glyphicons-clock"></i>
-    <% end %>
+<div class="margin-top-main">
+  <nav>
+    <div class="logo">
+      Count Down
+      <i class="glyphicon glyphicon-time"></i>
     </div>
-  </div>
+    <div class="sidebar-header">
+      <div id="dismiss">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+    </div>
 
-  <ul class="nav">
-  <% if user_signed_in? %>
-    <li class="nav-item"><%= link_to "#{current_user.email}", edit_user_registration_path(@user)%></li>
-    <li class="nav-item"><%= link_to 'Sign Out', destroy_user_session_path, class: 'small-button', method: 'delete' %></li>
-  <% else %>
-    <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: 'small-button', method: 'get' %></li>
-    <li class="nav-item"><%= link_to 'Sign In', new_user_session_path, class: 'small-button', method: 'get' %></li>
-  <% end %>
-  </ul>
+    <ul class="list-unstyled components nav-item">
+      <li>
+        <%= link_to  goals_path, method: 'get', class: 'glyphicons glyphicons-clock'  do %>
+        <i class="glyphicons glyphicons-clock"></i>
+        <% end %>
+      </li>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
 
-  <ul class="nav">
-    <% if user_signed_in? %>
-    <li class="nav-item">
-      <%= link_to 'My goals', goals_path, method: 'get' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'New', new_goal_path, method: 'get' %>
-    </li>
-    <% end %>
-  </ul>
+      <% if user_signed_in? %>
 
+      <% else %>
+        <li><%= link_to 'Sign Up', new_user_registration_path, class: 'small-button', method: 'get' %></li>
+        <li><%= link_to 'Sign In', new_user_session_path, class: 'small-button', method: 'get' %></li>
+      <% end %>
+
+      <% if user_signed_in? %>
+      <li class="active">
+        <%= link_to 'My goals', goals_path, method: 'get' %>
+      </li>
+      <li>
+        <%= link_to 'New', new_goal_path, method: 'get' %>
+      </li>
+      <% end %>
+    </ul>
+  </nav>
 </div>

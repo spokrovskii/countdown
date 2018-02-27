@@ -12,3 +12,34 @@
 .create-edit {
   margin: 10px 8px 10px 0px;
 }
+
+
+.glyphicon-trash {
+  font-size: 21px;
+  margin: 12px 8px 10px 0px;
+  color: #1f71f0;
+  cursor: pointer;
+}
+
+.glyphicon-pencil {
+  font-size: 21px;
+  margin: 12px 40px 10px 20px;
+  color: #1f71f0;
+  cursor: pointer;
+}
+
+.glyphicon-trash:hover {
+  color: #ea8005;
+}
+
+.glyphicon-pencil:hover {
+  color: #ea8005;
+}
+
+.logo{
+padding-top: 58px;
+padding-bottom: 45px;
+color: #fff;
+font-size: 22px;
+text-align: center;
+}

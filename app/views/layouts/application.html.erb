@@ -41,16 +41,50 @@
        </ul>
     </div>
     <% end %>
-    </div>
+  </div>
+
+  <div class="wrapper">
     <div class="container h-100">
       <div class="row display-flex h-100">
 
-        <div class="col-md-3 col-xs-4 nav-bar-main">
+          <div class="col-md-3 col-md-offset-1 col-xs-4 nav-bar-main" id="sidebar">
             <%= render 'shared/navigation_bar' %>
-        </div>
+          </div>
 
-        <div class="margin-top-main col-md-9 col-xs-8"><%= yield %></div>
+
+        <div id="main" class="margin-top-main col-md-8 col-xs-8">
+          <div class="row">
+            <div class="col-xs-6">
+              <nav class="list-unstyled components">
+                <ul id="secondary-nav-b">
+                  <li id="sidebarCollapse" class="glyphicon glyphicon-menu-hamburger"></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-xs-6 nav-two">
+
+              <nav class="list-unstyled components" id="second">
+                <ul id="secondary-nav">
+                  <% if user_signed_in? %>
+                    <li><%= link_to "#{current_user.email}", edit_user_registration_path(@user)%></li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, class: 'small-button', method: 'delete' %></li>
+                  <% else %>
+                    <li><%= link_to 'Sign Up', new_user_registration_path, class: 'small-button', method: 'get' %></li>
+                    <li><%= link_to 'Sign In', new_user_session_path, class: 'small-button', method: 'get' %></li>
+                  <% end %>
+                </ul>
+              </nav>
+
+            </div>
+          </div>
+            <div class="row">
+              <%= yield %>
+            </div>
+
+        </div>
       </div>
     </div>
+  </div>
+
   </body>
 </html>

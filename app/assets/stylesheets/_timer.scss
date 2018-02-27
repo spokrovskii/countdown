@@ -7,6 +7,12 @@
   display:inline;
 }
 
+.title {
+  padding-top:30px;
+  font-size: 30px;
+  color: #000;
+}
+
 .sub-title {
   font-size: 14px;
   font-style: bold;
@@ -28,10 +34,20 @@
 .due-date {
 
   font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #757575;
-  font-size: 12px;
+  color: #b9b5b5;
+  font-size: 15px;
+  font-weight: 400;
   padding-top: 6px;
+  padding-bottom: 9px;
+}
+
+.start-date {
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #b9b5b5;
+  font-size: 15px;
+  font-weight: 400;
   padding-bottom: 3px;
+  padding-top: 6px;
 }
 
 .name {
@@ -39,6 +55,7 @@
   color: #000;
   font-size: 20px;
   font-weight: 500;
+  padding-bottom: 9px;
 }
 
 .description {
@@ -46,20 +63,14 @@
   color: #757575;
   font-size: 16px;
   font-weight: 200;
-  margin: 5px 0px 5px 0px;
+  margin: 8px 0px 5px 0px;
 }
 
-.start-date {
-  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #757575;
-  font-size: 16px;
-  font-weight: 400;
-}
 
 .clock{
   font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #000;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 500;
   margin-top: 2px;
 }
