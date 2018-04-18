@@ -16,7 +16,7 @@ class Api::V1::GoalsController < ApiController
           render json: { goal: goal, message: 'Goal created!' }, status: :ok
         else
           render json: { goal: goal,
-                         message: 'There were problems creating that note.',
+                         message: 'There were problems creating that goal.',
                          errors: errors
                        }, status: :bad_request
         end

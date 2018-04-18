@@ -46,7 +46,6 @@ class EditGoal extends Component {
       if (data.errors) {
         this.setState({ updateGoalErrors: data.errors });
       } else {
-        console.log("Goal updated in database")
         this.props.update(this.state.name, this.state.description);
       }
     });
