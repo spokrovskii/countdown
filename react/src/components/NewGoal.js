@@ -11,7 +11,8 @@ class  NewGoal extends Component {
       errors: {},
       name: '',
       description: '',
-      dueDateTime: moment()
+      dueDateTime: moment(),
+      created: ''
     }
     this.handleNameCreation = this.handleNameCreation.bind(this);
     this.handleDescriptionCreation = this.handleDescriptionCreation.bind(this);
@@ -39,11 +40,13 @@ class  NewGoal extends Component {
     })
     .done((data) => {
       console.log("goal created")
+      this.setState({ created:'Goal successfully created'})
       if (data.errors) {
         this.setState({ errors: data.errors });
       } else {
-        this.setState({ name: '', description: '' });
+        this.setState({ name: '', description: '', due_time:'', created:'Goal was successfully created'});
       }
+
     });
   }
 
@@ -54,9 +57,9 @@ class  NewGoal extends Component {
   render() {
     let nameError = <div className="error"><span className="error-star"></span>{this.state.errors.name}</div>
     let descriptionError = <div className="error"><span className="error-star"></span>{this.state.errors.decription}</div>
-
+    let flashGoalCreated = <div className="flashGoalCreated">{this.state.created}</div>
     return (
-      <div class="col-xs-8 col-xs-offset-2 margin-new-goal">
+      <div className="col-xs-8 col-xs-offset-2 margin-new-goal">
         <div className="form-group">
           <Form className="callout" onSubmit={this.handleFormSubmit}>
             {nameError}
@@ -86,6 +89,7 @@ class  NewGoal extends Component {
               <Button className="btn btn-outline-primary" type="submit">Save</Button>
             </div>
           </Form>
+          {flashGoalCreated}
         </div>
       </div>
     );

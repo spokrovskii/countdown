@@ -2,9 +2,12 @@
   display: inline;
   margin-right: 2px;
 }
+.inline {
+  display: inline;
+}
 
 .timer-display {
-  display:inline;
+  display: inline;
 }
 
 .title {
@@ -32,7 +35,6 @@
 }
 
 .due-date {
-
   font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #b9b5b5;
   font-size: 15px;
@@ -73,4 +75,5 @@
   font-size: 21px;
   font-weight: 500;
   margin-top: 2px;
+  display: inline;
 }
