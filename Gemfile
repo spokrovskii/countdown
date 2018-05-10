@@ -15,6 +15,9 @@ gem 'pg_search'
 gem 'twitter'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'foundation-datetimepicker-rails', '~> 0.2.4'
+gem 'foundation-icons-sass-rails'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'capybara'

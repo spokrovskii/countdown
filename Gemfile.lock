@@ -249,6 +249,13 @@ GEM
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
     formatador (0.2.5)
+    foundation-datetimepicker-rails (0.2.4)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     http (3.3.0)
@@ -473,6 +480,9 @@ DEPENDENCIES
   factory_girl_rails
   fog
   font-awesome-rails
+  foundation-datetimepicker-rails (~> 0.2.4)
+  foundation-icons-sass-rails
+  foundation-rails
   jquery-rails
   launchy
   mailcatcher
