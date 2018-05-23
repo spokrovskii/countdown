@@ -52,9 +52,14 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
+    "react-scripts": "1.0.7",
     "redux": "^3.5.2",
     "redux-form": "^5.2.3",
     "redux-thunk": "^2.1.0",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0" 
+  },
+  "engines": {
+    "node": "7.4.0",
+    "npm": "4.0.5"
   }
 }
