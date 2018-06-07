@@ -1,0 +1,20 @@
+<%= alert %>
+<div class="row padding-top">
+   <% flash.each do |type, message| %>
+   <% type = 'info' if type == 'notice' %>
+  <div class="alert alert-<%=type%>" role="alert">
+    <div class="message">
+      <%= message %>
+      <% end %>
+      <% if @errors  %>
+    </div>
+  </div>
+  <div class="errors">
+    <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+       <% end %>
+   <% end %>
+     </ul>
+  </div>
+</div>

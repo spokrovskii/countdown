@@ -1,5 +1,18 @@
-
-
-.message {
-  padding-left: 10px;
+.alert-info {
+    background-color: #64738d;
+    border-color: #64738d;
+    color: #ffffff;
 }
+
+.errors {
+    background-color: #e80707;
+    border-color: #e80707;
+    color: #ffffff;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 0px;
+    border: px solid transparent;
+    border-radius: 0px;
+  }
