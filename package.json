@@ -12,10 +12,10 @@
     "npm": "4.0.5"
   },
   "scripts": {
-    "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
-    "start": "npm run webpack -- --watch",
-    "test": "node_modules/.bin/karma start react/karma.conf.js",
-    "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
+    "start": "NODE_ENV=development node server",
+    "start:prod": "NODE_ENV=production node server --optimize_for_size --max_old_space_size=460 --gc_interval=100",
+    "build": "NODE_ENV=production webpack -p --config ./webpack.prod.js --progress --colors --display-error-details",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",
