@@ -7,6 +7,10 @@
     "url": "https://github.com/spokrovskiy/countdown"
   },
   "main": "webpack.config.js",
+  "engines": {
+    "node": "7.4.0",
+    "npm": "4.0.5"
+  },
   "scripts": {
     "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
     "start": "npm run webpack -- --watch",
@@ -56,10 +60,6 @@
     "redux": "^3.5.2",
     "redux-form": "^5.2.3",
     "redux-thunk": "^2.1.0",
-    "webpack": "^1.13.0" 
-  },
-  "engines": {
-    "node": "7.4.0",
-    "npm": "4.0.5"
+    "webpack": "^1.13.0"
   }
 }
