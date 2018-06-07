@@ -15,6 +15,7 @@ gem 'pg_search'
 gem 'twitter'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'foreman'
 
 group :development, :test do
   gem 'capybara'
@@ -42,5 +43,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg', '~> 0.15'
 end
