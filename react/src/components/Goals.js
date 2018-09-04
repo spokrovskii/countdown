@@ -7,17 +7,22 @@ import moment from 'moment';
 class Goals extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       goals: [],
       editingGoalId: 0,
-      update: 'false'
+      update: 'false',
+      updateGoalErrors: [],
+      name: '',
+      description: '',
+      id: ''
     };
     this.getGoals = this.getGoals.bind(this);
     this.populateGoals = this.populateGoals.bind(this);
     this.deleteGoal = this.deleteGoal.bind(this);
     this.editGoal = this.editGoal.bind(this);
     this.updateGoals = this.updateGoals.bind(this);
+    this.changeName = this.changeName.bind(this);
+    this.changeDescription = this.changeDescription.bind(this);
   }
 
   componentDidMount(){
@@ -65,11 +70,17 @@ class Goals extends Component {
     }
     return currentGoal;
   });
-
+  
   this.setState({ goals: goals });
   this.setState({ editingGoalId: 0 })
+  }
 
-  console.log(this.state.goals);
+  changeName(newName){
+    this.setState({name: newName})
+  }
+
+  changeDescription(newDescription){
+    this.setState({description: newDescription});
   }
 
   render() {
@@ -78,11 +89,16 @@ class Goals extends Component {
       if(this.state.editingGoalId === goal.id) {
         return(
           <EditGoal key={goal.id}
+                    id={goal.id}
                     name={goal.name}
                     description={goal.description}
                     dueTime={moment(goal.due_time).format("lll")}
                     goal={goal}
                     update={this.updateGoals}
+                    changeName={this.changeName}
+                    changeDescription={this.changeDescription}
+                    newName={this.state.name}
+                    newDescription={this.state.description}
            />
           );
        } else {

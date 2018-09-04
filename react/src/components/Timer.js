@@ -17,8 +17,6 @@ class Timer extends Component {
     this.getTimeUntill = this.getTimeUntill.bind(this);
   }
 
-
-
   componentWillMount() {
     this.getTimeUntill(this.props.deadline);
   }
