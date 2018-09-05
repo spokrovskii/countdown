@@ -54,12 +54,18 @@ class EditGoal extends Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <div>
-          <textarea value={this.state.name}
-                    onChange={this.handleChangeName} />
+      <div className="name-label">
+          New name:
         </div>
         <div>
-          <textarea value={this.state.description}
+          <input className="field-input" value={this.state.name}
+                    onChange={this.handleChangeName} />
+        </div>
+        <div className="name-label">
+          New description:
+        </div>
+        <div>
+          <textarea rows="5" className="field-input " value={this.state.description}
                     onChange={this.handleChangeDescription} />
         </div>
         <input type="submit" value="Save" />

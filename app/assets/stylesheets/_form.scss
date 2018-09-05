@@ -20,3 +20,22 @@ textarea {
 .password {
 width: 50%;
 }
+
+.name-label{
+  margin: 20px 0px 5px 0px; 
+  color: #090909; 
+  font-size: 20px;
+  font-weight: 500px;
+}
+
+.field-input {
+  width: 80%;
+  box-sizing: border-box;
+  padding: 6px 10px;
+  line-height: 28px;
+  margin: 5px 0;
+}
+
+.description-field { 
+  line-height: 60px;
+}
