@@ -17,13 +17,14 @@ const Goal = props => {
     <div>
       <div className="row">
         <div><spam><hr /></spam></div>
-        <div className="col-xs-6 no-padding">
+        <div className="col-sm-6 no-padding">
           <div className="name">{props.name}</div>
             <div className="col-xs-11 no-padding">
               <div className="description">{props.description}</div>
             </div>
           </div>
-          <div className="col-xs-3 no-padding">
+          <div className="col-sm-6 no-padding">
+          <div className="col-xs-6 no-padding">
               <div className="due-date">{props.dueTime}</div>
             <div>
               <Timer
@@ -32,10 +33,12 @@ const Goal = props => {
                />
             </div>
           </div>
-          <div className="col-xs-3 no-padding">
+          
+          <div className="col-xs-6 no-padding">
             <div className="start-date">{props.startDate}</div>
             <div className="glyphicon glyphicon-trash" type="submit" onClick={handleDelete}></div>
             <div className="glyphicon glyphicon-pencil" type="submit"  onClick={handleEdit}></div>
+          </div>
           </div>
        </div>
      </div>
