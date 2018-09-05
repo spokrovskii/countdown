@@ -65,11 +65,9 @@ class Goals extends Component {
     }
     return currentGoal;
   });
-
   this.setState({ goals: goals });
   this.setState({ editingGoalId: 0 })
 
-  console.log(this.state.goals);
   }
 
   render() {
