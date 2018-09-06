@@ -67,12 +67,11 @@ class Goals extends Component {
   });
   this.setState({ goals: goals });
   this.setState({ editingGoalId: 0 })
-
   }
 
   render() {
 
-    let goals = this.state.goals.map(goal => {
+    const goals = this.state.goals.map(goal => {
       if(this.state.editingGoalId === goal.id) {
         return(
           <EditGoal key={goal.id}
