@@ -26,7 +26,7 @@ class Goals extends Component {
 
   getGoals() {
     $.ajax({
-      url: `/api/v1/goals.json`,
+      url: `/api/v1/goals`,
       method: 'GET',
       success: this.populateGoals
     });
