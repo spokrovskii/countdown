@@ -1,5 +1,5 @@
 class Api::V1::GoalsController < ApiController
-  before_action :authenticate_user!
+  before_action :user_is_logged_in?
 
   def index
     goals = Goal.where(user: current_user)

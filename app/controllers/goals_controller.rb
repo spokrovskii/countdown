@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :user_is_logged_in?, except: [:show]
 
   before_action :check_permissions, only: [:edit, :update, :destroy]
 

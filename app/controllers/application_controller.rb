@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
 
     before_filter :configure_permitted_parameters, if: :devise_controller?
 
+    def user_is_logged_in?
+      if !session[:oktastate]
+        print("this is not logged in")
+        redirect_to user_oktaoauth_omniauth_authorize_path
+      end
+    end
+  
+    def after_sign_in_path_for(resource)
+      request.env['omniauth.origin'] || root_path
+    end 
+
     protected
 
     def configure_permitted_parameters

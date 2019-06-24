@@ -6,7 +6,7 @@
           <h3>sign in</h3>
         </div>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: 'form'}) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session[:oktastate], html: {role: 'form'}) do |f| %>
         <div class="form-group">
           <label><%= f.label :email, class: 'control-label' %></label>
           <%= f.email_field :email, autofocus: true, class: 'col-xs-6 form-control control-label' %></br>

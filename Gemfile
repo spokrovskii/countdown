@@ -1,6 +1,6 @@
 source 'https://rubygems.org/'
 
-ruby "2.2.3"
+ruby "2.3.0"
 
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
@@ -8,6 +8,9 @@ gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
+gem 'omniauth-oktaoauth'
+gem 'activerecord-session_store'
+gem 'figaro'
 gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'pusher'
